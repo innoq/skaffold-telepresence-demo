@@ -1,0 +1,15 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Attach remote process",
+      "type": "go",
+      "request": "attach",
+      "mode": "remote",
+      "port": 56268,
+      "host": "127.0.0.1",
+      "apiVersion": 2,
+      "showLog": true
+    }
+  ]
+}
