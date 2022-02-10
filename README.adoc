@@ -1,1 +1,10 @@
 TODO
+
+* Install go: LINK
+* Install kind
+* Run `kind create cluster --config kind.yaml --name demo`
+* kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/main/deploy/static/provider/kind/deploy.yaml
+* Install skaffold
+* install kustomaize
+* kustomize init im kustomize ordner
+* skaffold build
