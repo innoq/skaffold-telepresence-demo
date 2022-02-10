@@ -1,0 +1,13 @@
+apiVersion: skaffold/v2beta26
+kind: Config
+metadata:
+  name: skaffold-telepresence-demo
+build:
+  artifacts:
+  - image: demo-app
+    docker:
+      dockerfile: Dockerfile
+deploy:
+  kustomize:
+    paths:
+    - kustomize/base
