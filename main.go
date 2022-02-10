@@ -12,7 +12,7 @@ import (
 func main() {
 	app := fx.New(
 		fx.Provide(
-			configureGinEngine,
+			createGinEngine,
 			createServer),
 		fx.Invoke(
 			registerHooks,
@@ -33,7 +33,7 @@ func createServer(h http.Handler) *http.Server {
 	}
 }
 
-func configureGinEngine() (http.Handler, gin.IRouter) {
+func createGinEngine() (http.Handler, gin.IRouter) {
 	router := gin.New()
 	router.Use(gin.Recovery())
 	return router, router
