@@ -1,18 +1,18 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: demp-app
+  name: demo-app
 spec:
   selector:
     matchLabels:
-      app: demp-app
+      app: demo-app
   template:
     metadata:
       labels:
-        app: demp-app
+        app: demo-app
     spec:
       containers:
-      - name: demp-app
+      - name: demo-app
         image: demo-app
         resources:
           limits:
