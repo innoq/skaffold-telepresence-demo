@@ -6,15 +6,15 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-type Handler struct {
-	router gin.IRouter
-}
-
 func newHandler(r gin.IRouter) *Handler {
 	h := &Handler{router: r}
 
 	h.registerRoutes(h.router.Group("/"))
 	return h
+}
+
+type Handler struct {
+	router gin.IRouter
 }
 
 func (h *Handler) registerRoutes(router gin.IRoutes) {
