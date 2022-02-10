@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: demp-app
+spec:
+  selector:
+    matchLabels:
+      app: demp-app
+  template:
+    metadata:
+      labels:
+        app: demp-app
+    spec:
+      containers:
+      - name: demp-app
+        image: demo-app
+        resources:
+          limits:
+            memory: "32Mi"
+            cpu: "100m"
+        ports:
+        - containerPort: 8080

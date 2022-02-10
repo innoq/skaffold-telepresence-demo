@@ -4,10 +4,10 @@ metadata:
   name: skaffold-telepresence-demo
 build:
   artifacts:
-    - image: skaffold-telepresence-demo
-      context: .
-      jib: {}
+  - image: demo-app
+    docker:
+      dockerfile: Dockerfile
 deploy:
   kustomize:
     paths:
-      - k8s/skaffold-telepresence-demo/base
+    - kustomize/base
