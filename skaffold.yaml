@@ -1,0 +1,13 @@
+apiVersion: skaffold/v2beta26
+kind: Config
+metadata:
+  name: skaffold-telepresence-demo
+build:
+  artifacts:
+    - image: skaffold-telepresence-demo
+      context: .
+      jib: {}
+deploy:
+  kustomize:
+    paths:
+      - k8s/skaffold-telepresence-demo/base
