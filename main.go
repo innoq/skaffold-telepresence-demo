@@ -12,7 +12,7 @@ import (
 func main() {
 	app := fx.New(
 		fx.Provide(
-			configureRouter,
+			configureGinEngine,
 			createServer),
 		fx.Invoke(
 			registerHooks,
@@ -26,17 +26,17 @@ func main() {
 	}
 }
 
-func createServer(engine *gin.Engine) *http.Server {
+func createServer(h http.Handler) *http.Server {
 	return &http.Server{
 		Addr:    ":8080",
-		Handler: engine,
+		Handler: h,
 	}
 }
 
-func configureRouter() *gin.Engine {
+func configureGinEngine() (http.Handler, gin.IRouter) {
 	router := gin.New()
 	router.Use(gin.Recovery())
-	return router
+	return router, router
 }
 
 func registerHooks(lifecycle fx.Lifecycle, server *http.Server) {
@@ -61,21 +61,20 @@ func registerHooks(lifecycle fx.Lifecycle, server *http.Server) {
 }
 
 type Handler struct {
-	e *gin.Engine
+	router gin.IRouter
 }
 
-func newHandler(e *gin.Engine) *Handler {
-	h := &Handler{e: e}
+func newHandler(r gin.IRouter) *Handler {
+	h := &Handler{router: r}
 
-	h.registerRoutes(h.e.Group("/"))
+	h.registerRoutes(h.router.Group("/"))
 	return h
 }
 
-func (h *Handler) registerRoutes(router *gin.RouterGroup) {
-	router.GET("hello", h.main)
+func (h *Handler) registerRoutes(router gin.IRoutes) {
+	router.GET("hello", h.sayHello)
 }
 
-func (h *Handler) main(c *gin.Context) {
-	fmt.Println("In /hello")
+func (h *Handler) sayHello(c *gin.Context) {
 	c.String(http.StatusOK, "Hello World")
 }
