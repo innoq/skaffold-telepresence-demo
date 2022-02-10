@@ -1,4 +1,5 @@
 kustomize
-kind.yaml
+kind
 skaffold.yaml
 README.adoc
+justfile
