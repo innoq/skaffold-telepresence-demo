@@ -36,6 +36,7 @@ RUN upx hello-go
 # The actual image of the app
 FROM scratch
 LABEL maintainer=dimitrij.drus@innoq.com
+ENV GOTRACEBACK=all
 
 COPY --from=builder /etc/passwd /etc/passwd
 COPY --from=builder /etc/group /etc/group
