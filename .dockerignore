@@ -1,0 +1,4 @@
+kustomize
+kind.yaml
+skaffold.yaml
+README.adoc
