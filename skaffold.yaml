@@ -3,6 +3,9 @@ kind: Config
 metadata:
   name: skaffold-telepresence-demo
 build:
+  local:
+    useBuildkit: true
+    useDockerCLI: true
   artifacts:
   - image: demo-app
     docker:
