@@ -1,9 +1,12 @@
 default:
   @just --list
 
-create cluster:
+cluster_create:
   kind create cluster --config kind.yaml --name demo
   kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/main/deploy/static/provider/kind/deploy.yaml
+
+cluster_delete:
+  kind delete cluster --name demo
 
 up:
   skaffold run
