@@ -76,6 +76,6 @@ func (h *Handler) registerRoutes(router *gin.RouterGroup) {
 }
 
 func (h *Handler) main(c *gin.Context) {
-	fmt.Println("In /hello *")
+	fmt.Println("In /hello")
 	c.String(http.StatusOK, "Hello World")
 }

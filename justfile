@@ -13,5 +13,3 @@ up:
 
 down:
   skaffold delete
-
-
