@@ -8,8 +8,9 @@ build:
     useDockerCLI: true
   artifacts:
   - image: demo-app
+    context: .
     docker:
-      dockerfile: Dockerfile
+      dockerfile: docker/Dockerfile
 deploy:
   kustomize:
     paths:
