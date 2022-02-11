@@ -10,7 +10,7 @@ build:
   - image: innoq/skaffold-telepresence-demo
     context: .
     docker:
-      dockerfile: docker/Dockerfile
+      dockerfile: docker/prod.Dockerfile
 deploy:
   kustomize:
     paths:
@@ -22,11 +22,11 @@ profiles:
     artifacts:
     - image: innoq/skaffold-telepresence-demo
       docker:
-        dockerfile: docker/Dockerfile.dev
+        dockerfile: docker/dev.Dockerfile
 - name: sandbox
   build:
     artifacts:
     - image: innoq/skaffold-telepresence-demo
       docker:
-        dockerfile: docker/Dockerfile
+        dockerfile: docker/prod.Dockerfile
 
