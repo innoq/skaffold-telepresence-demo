@@ -7,7 +7,7 @@ build:
     useBuildkit: true
     useDockerCLI: true
   artifacts:
-  - image: demo-app
+  - image: innoq/skaffold-telepresence-demo
     context: .
     docker:
       dockerfile: docker/Dockerfile

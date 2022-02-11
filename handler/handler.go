@@ -6,7 +6,7 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-func newHandler(r gin.IRouter) *Handler {
+func NewHandler(r gin.IRouter) *Handler {
 	h := &Handler{router: r}
 
 	h.registerRoutes(h.router.Group("/"))
