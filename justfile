@@ -3,7 +3,7 @@ default:
 
 cluster_create:
   kind create cluster --config kind/kind.yaml --name demo
-  kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/main/deploy/static/provider/kind/deploy.yaml
+  kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/main/deploy/static/provider/kind/deploy.yaml --wait=true
 
 cluster_delete:
   kind delete cluster --name demo

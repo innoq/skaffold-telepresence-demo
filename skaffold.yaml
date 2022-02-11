@@ -15,3 +15,18 @@ deploy:
   kustomize:
     paths:
     - kustomize/base
+
+profiles:
+- name: dev
+  build:
+    artifacts:
+    - image: innoq/skaffold-telepresence-demo
+      docker:
+        dockerfile: docker/Dockerfile.dev
+- name: sandbox
+  build:
+    artifacts:
+    - image: innoq/skaffold-telepresence-demo
+      docker:
+        dockerfile: docker/Dockerfile
+
