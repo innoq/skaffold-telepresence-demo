@@ -8,3 +8,9 @@ TODO
 * install kustomaize
 * kustomize init im kustomize ordner
 * skaffold build
+
+* install telepresence
+  * telepresence list
+  * kubectl get service demo-app (check the name of the port)
+  * telepresence intercept demo-app --port <local port>[:<remote port from the output of kubectl>] --env-file demo-app.env
+  * when ready: telepresence quit, telepresence leave demo-app
