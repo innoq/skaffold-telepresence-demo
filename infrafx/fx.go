@@ -6,7 +6,7 @@ import (
 	"net/http"
 
 	"github.com/gin-gonic/gin"
-	
+
 	"go.uber.org/fx"
 
 	"hello-go/handler"
@@ -14,20 +14,20 @@ import (
 
 var Module = fx.Options(
 	fx.Provide(
-		createGinEngine,
-		createServer),
+		newGinEngine,
+		newServer),
 	fx.Invoke(registerHooks),
 	handler.Module,
 )
 
-func createServer(h http.Handler) *http.Server {
+func newServer(h http.Handler) *http.Server {
 	return &http.Server{
 		Addr:    ":8080",
 		Handler: h,
 	}
 }
 
-func createGinEngine() (http.Handler, gin.IRouter) {
+func newGinEngine() (http.Handler, gin.IRouter) {
 	router := gin.New()
 	router.Use(gin.Recovery())
 	return router, router
