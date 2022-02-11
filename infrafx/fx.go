@@ -22,7 +22,7 @@ var Module = fx.Options(
 
 func newServer(h http.Handler) *http.Server {
 	return &http.Server{
-		Addr:    ":8080",
+		Addr:    ":9090",
 		Handler: h,
 	}
 }

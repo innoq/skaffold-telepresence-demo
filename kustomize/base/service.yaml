@@ -6,5 +6,5 @@ spec:
   selector:
     app: demo-app
   ports:
-  - port: 8080
-    targetPort: 8080
+  - port: 8085
+    targetPort: 9090
